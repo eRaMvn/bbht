@@ -1,6 +1,6 @@
 # BBHT
 
-Bug Bounty Hunting Tools is a script to install the most popular tools used while looking for vulnerabilities for a bug bounty program.
+Bug Bounty Hunting Tools is a script to install the most popular tools used while looking for vulnerabilities for a bug bounty program. This is a forked from nahamsec repo and customized for my usage
  
 # Tools
 
@@ -27,7 +27,7 @@ https://github.com/nahamsec/recon_profile
 
 
 # Installing
-- git clone https://github.com/nahamsec/bbht.git
+- git clone https://github.com/eRaMvn/bbht.git
 - cd bbht
 - chmod +x install.sh
 - ./install.sh
