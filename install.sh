@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get -y update
 
-sudo apt install -y net-tools
+sudo apt-get install -y net-tools
 sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y jq
@@ -17,6 +17,7 @@ sudo apt-get install -y python-dnspython
 sudo apt-get install -y git
 sudo apt-get install -y rename
 sudo apt-get install -y xargs
+sudo apt-get install -y net-tools
 sudo apt-get install -y tmux
 sudo apt-get install -y vim
 # sudo apt-get install -y openssh-server
@@ -28,6 +29,7 @@ pip3 install boto3 requests
 echo "Installing bash_profile aliases from recon_profile"
 cat .bash_profile >> ~/.bash_profile
 source ~/.bash_profile
+echo "source ~/.bash_profile" >> ~/.bashrc
 echo "done"
 
 #install go
@@ -61,6 +63,8 @@ select choice in "${choices[@]}"; do
 	esac	
 done
 fi
+
+sleep 5
 
 # Setting up tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
