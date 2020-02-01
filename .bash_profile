@@ -50,11 +50,11 @@ curl http://ipinfo.io/$1
 
 #------ Tools ------
 dirsearch(){ runs dirsearch and takes host and extension as arguments
-python3 ~/tools/dirsearch/dirsearch.py -u $1 -e $2 -t 50 -b 
+python3 ~/tools/dirsearch/dirsearch.py "$@" 
 }
 
 sqlmap(){
-python3 ~/tools/sqlmap*/sqlmap.py -u $1 
+python3 ~/tools/sqlmap*/sqlmap.py "$@" 
 }
 
 ncx(){
@@ -66,5 +66,9 @@ curl -s https://crt.sh/?q\=%.$1\&output\=json | jq -r '.[].name_value' | sed 's/
 }
 
 patator(){
-python3 ~/tools/patator/patator.py
+python3 ~/tools/patator/patator.py "$@"
+}
+
+goldfish(){
+python3 ~/tools/LazyTools/GoldFish/GoldFishCmd.py "$@"
 }

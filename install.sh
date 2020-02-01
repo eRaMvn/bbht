@@ -17,7 +17,6 @@ sudo apt-get install -y python-dnspython
 sudo apt-get install -y git
 sudo apt-get install -y rename
 sudo apt-get install -y xargs
-sudo apt-get install -y net-tools
 sudo apt-get install -y tmux
 sudo apt-get install -y vim
 # sudo apt-get install -y openssh-server
@@ -69,6 +68,7 @@ sleep 5
 # Setting up tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ./.tmux.conf
+echo "tmux source ~/.tmux.conf" >> ~/.bashrc
 
 #Don't forget to set up AWS credentials!
 echo "Don't forget to set up AWS credentials!"
@@ -77,6 +77,12 @@ apt install -y awscli
 #create a tools folder in ~/
 mkdir ~/tools
 cd ~/tools/
+
+#install GoldFish
+echo "Installing GoldFish"
+git clone https://github.com/eRaMvn/LazyTools.git
+cd ~/tools/
+echo "done"
 
 #install patator
 echo "Installing Patator"
