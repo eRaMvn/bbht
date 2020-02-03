@@ -1,26 +1,30 @@
 #!/bin/bash
-sudo apt-get -y update
+sudo apt -y update
 
-sudo apt-get install -y net-tools
-sudo apt-get install -y libcurl4-openssl-dev
-sudo apt-get install -y libssl-dev
-sudo apt-get install -y jq
-sudo apt-get install -y ruby-full
-sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
-sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
-sudo apt-get install -y libmysqlclient-dev
-sudo apt-get install -y python-setuptools
-sudo apt-get install -y libldns-dev
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python-pip
-sudo apt-get install -y python-dnspython
-sudo apt-get install -y git
-sudo apt-get install -y rename
-sudo apt-get install -y xargs
-sudo apt-get install -y tmux
-sudo apt-get install -y vim
-# sudo apt-get install -y openssh-server
-# sudo systemctl enable ssh
+sudo apt install -y net-tools
+sudo apt install -y libcurl4-openssl-dev
+sudo apt install -y libssl-dev
+sudo apt install -y jq
+sudo apt install -y ruby-full
+sudo apt install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+sudo apt install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt install -y libmysqlclient-dev
+sudo apt install -y python-setuptools
+sudo apt install -y libldns-dev
+sudo apt install -y python3-pip
+sudo apt install -y python-pip
+sudo apt install -y python-dnspython
+sudo apt install -y git
+sudo apt install -y rename
+sudo apt install -y xargs
+sudo apt install -y tmux
+sudo apt install -y vim
+sudo apt install -y curl
+sudo apt install -y golang-go
+sudo apt install -y openssh-server
+sudo snap install amass
+
+sudo systemctl enable ssh
 
 # install common python3 libraries
 pip3 install boto3 requests
@@ -30,40 +34,6 @@ cat .bash_profile >> ~/.bash_profile
 source ~/.bash_profile
 echo "source ~/.bash_profile" >> ~/.bashrc
 echo "done"
-
-#install go
-if [[ -z "$GOPATH" ]];then
-echo "It looks like go is not installed, would you like to install it now"
-PS3="Please select an option : "
-choices=("yes" "no")
-select choice in "${choices[@]}"; do
-	case $choice in
-		yes)
-
-			echo "Installing Golang"
-			wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-			sudo tar -xvf go1.13.4.linux-amd64.tar.gz
-			sudo mv go /usr/local
-			export GOROOT=/usr/local/go
-			export GOPATH=$HOME/go
-			export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-			echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
-			echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
-			echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile	
-			source ~/.bash_profile
-			sleep 1
-			break
-			;;
-		no)
-			echo "Please install go and rerun this script"
-			echo "Aborting installation..."
-			exit 1
-			;;
-	esac	
-done
-fi
-
-sleep 5
 
 # Setting up tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -104,11 +74,6 @@ cd EyeWitness
 sudo python3 setup.py install
 cd ~/tools/
 echo "done"
-
-#install chromium
-# echo "Installing Chromium"
-# sudo snap install chromium
-# echo "done"
 
 echo "Installing JSParser"
 git clone https://github.com/nahamsec/JSParser.git
@@ -167,7 +132,7 @@ cd ~/tools/
 echo "done"
 
 echo "Installing nmap"
-sudo apt-get install -y nmap
+sudo apt install -y nmap
 echo "done"
 
 echo "Installing massdns"
@@ -186,6 +151,10 @@ echo "done"
 
 echo "Installing httprobe"
 go get -u github.com/tomnomnom/httprobe 
+echo "done"
+
+echo "Installing meg"
+go get -u github.com/tomnomnom/meg
 echo "done"
 
 echo "Installing unfurl"

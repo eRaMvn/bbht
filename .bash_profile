@@ -15,7 +15,7 @@ curl -s $1 | grep path | sed -n "s/.*resource path=\"\(.*\)\".*/\1/p" | tee -a ~
 
 #----- recon -----
 crtndstry(){
-./tools/crtndstry/crtndstry $1
+~/tools/crtndstry/crtndstry.sh $1
 }
 
 am(){ #runs amass passively and saves to json
