@@ -37,8 +37,6 @@ echo "done"
 
 # Setting up tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-git clone https://github.com/eRaMvn/bbht.git
-cd bbht
 tmux source ./.tmux.conf
 # echo "tmux source ~/.tmux.conf" >> ~/.bashrc
 
