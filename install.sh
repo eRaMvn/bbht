@@ -37,12 +37,14 @@ echo "done"
 
 # Setting up tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/eRaMvn/bbht.git
+cd bbht
 tmux source ./.tmux.conf
-echo "tmux source ~/.tmux.conf" >> ~/.bashrc
+# echo "tmux source ~/.tmux.conf" >> ~/.bashrc
 
 #Don't forget to set up AWS credentials!
 echo "Don't forget to set up AWS credentials!"
-apt install -y awscli
+sudo apt install -y awscli
 
 #create a tools folder in ~/
 mkdir ~/tools
@@ -98,6 +100,11 @@ echo "Installing wpscan"
 git clone https://github.com/wpscanteam/wpscan.git
 cd wpscan*
 sudo gem install bundler && bundle install --without test
+cd ~/tools/
+echo "done"
+
+echo "Installing joomscan"
+git clone https://github.com/rezasp/joomscan.git
 cd ~/tools/
 echo "done"
 

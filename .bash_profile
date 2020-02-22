@@ -72,3 +72,7 @@ python3 ~/tools/patator/patator.py "$@"
 goldfish(){
 python3 ~/tools/LazyTools/GoldFish/GoldFishCmd.py "$@"
 }
+
+joomscan(){
+perl ~/tools/joomscan/joomscan.pl "$@"
+}
